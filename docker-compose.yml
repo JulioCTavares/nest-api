@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    container_name: bookmark-db
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:?DATABASE_NAME env var is missing on .env file}
+      POSTGRES_USER: ${DATABASE_USERNAME:?DATABASE_USERNAME env var is missing on .env file}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD env var is missing on .env file}
+    volumes:
+      - ./data/db-dev:/var/lib/postgresql/data
+    ports:
+      - '${DATABASE_PORT:?DATABASE_PORT env var is missing on .env file}:5432'
+
+volumes:
+  pgdata:
+  node_modules:
