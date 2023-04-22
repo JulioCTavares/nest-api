@@ -18,7 +18,6 @@ lerna-debug.log*
 # Tests
 /coverage
 /.nyc_output
-/.data
 
 # IDEs and editors
 /.idea
@@ -35,3 +34,7 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+pg-data/
+
+data/
